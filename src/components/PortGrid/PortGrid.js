@@ -7,35 +7,20 @@ import TriviaGame from "../Images/physicImage";
 import NewYorkTimesSearch from "../Images/newYorkTimesSearch";
 import AdminACPR from "../Images/adminAcpr";
 
-const Images = [
-  { src: "../../images/PhysicImage.png" },
-  { src: "../../images/CookieCollector.png" },
-  { src: "../../images/NewYorkTimesSearch.png" },
-  { src: "../../images/AdminACPR.png" }
-];
-
+let Images = [];
 class PortGrid extends Component {
   state = {};
 
   openLightbox = e => {
+    //could grab which section it is to go to that
+    //picture instead of clearing the array everytime
+    Images = [];
     e.preventDefault();
-    let i = 0;
-    while (Images[i]) {
-      const image = e.target.src.split("/")[6];
-      console.log(i);
-      console.log(Images[i].src.includes(image));
-      if (Images[i].src.includes(image)) {
-        console.log("in true");
-        const curretImg = i;
-        this.setState({
-          currentImage: curretImg,
-          lightboxIsOpen: true
-        });
-        console.log(this.state);
-        return;
-      }
-      i++;
-    }
+    Images.push({ src: e.target.src });
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: true
+    });
   };
   closeLightbox = () => {
     this.setState({
@@ -69,7 +54,7 @@ class PortGrid extends Component {
         </Header>
         <Grid centered style={{ marginTop: 20, margin: 0 }} divided="vertically">
           <Grid.Row>
-            <Grid.Column computer="3" onClick={this.openLightbox}>
+            <Grid.Column computer="3" onClick={e => this.openLightbox(e)}>
               <TriviaGame />
             </Grid.Column>
             <Grid.Column computer="11">
@@ -114,7 +99,7 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="3" onClick={this.openLightbox}>
+            <Grid.Column computer="3" onClick={e => this.openLightbox(e)}>
               <CoookieCollector />
             </Grid.Column>
           </Grid.Row>
