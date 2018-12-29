@@ -1,0 +1,12 @@
+.imgStlying {
+  box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.imgStlying * {
+  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
+}
+.imgStlying:hover {
+  transform: scale(0.95);
+  transition-delay: 0ms, 0ms;
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
