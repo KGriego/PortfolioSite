@@ -20,6 +20,7 @@ class PortGrid extends Component {
   openLightbox = e => {
     e.preventDefault();
     console.log(Images.length);
+    let i = 0;
     while (i <= Images.length) {
       const image = e.target.src.split("/")[6];
       console.log(image);
