@@ -19,22 +19,19 @@ class PortGrid extends Component {
 
   openLightbox = e => {
     e.preventDefault();
-    console.log(Images.length);
     let i = 0;
-    while (i <= Images.length) {
+    while (Images[i]) {
       const image = e.target.src.split("/")[6];
-      console.log(image);
       console.log(i);
       console.log(Images[i].src.includes(image));
       if (Images[i].src.includes(image)) {
         console.log("in true");
-        const curretImg = parseInt(e.target.dataset.key);
-        console.log(curretImg);
-        console.log(i);
+        const curretImg = i;
         this.setState({
           currentImage: curretImg,
           lightboxIsOpen: true
         });
+        console.log(this.state);
         return;
       }
       i++;
@@ -57,12 +54,6 @@ class PortGrid extends Component {
       currentImage: currentImage + 1
     });
   };
-  goToAlbum = e => {
-    const { history } = this.props;
-    const albumName = e.target.alt;
-    history.push("/albumPage/" + albumName);
-  };
-
   render() {
     return (
       <div
@@ -224,7 +215,6 @@ class PortGrid extends Component {
           onClose={this.closeLightbox}
           onClickPrev={this.gotoPrevious}
           onClickNext={this.gotoNext}
-          onClickImage={this.goToAlbum}
           currentImage={this.state.currentImage}
           isOpen={this.state.lightboxIsOpen}
         />
