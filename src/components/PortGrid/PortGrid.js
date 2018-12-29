@@ -6,6 +6,8 @@ import CoookieCollector from "../Images/cookieCollector";
 import TriviaGame from "../Images/physicImage";
 import NewYorkTimesSearch from "../Images/newYorkTimesSearch";
 import AdminACPR from "../Images/adminAcpr";
+import TimeCard from "../Images/TimeCard";
+import GiphyRequester from "../Images/GiphyRequester.js";
 
 let Images = [];
 class PortGrid extends Component {
@@ -54,10 +56,10 @@ class PortGrid extends Component {
         </Header>
         <Grid centered style={{ marginTop: 20, margin: 0 }} divided="vertically">
           <Grid.Row>
-            <Grid.Column computer="3" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
               <TriviaGame />
             </Grid.Column>
-            <Grid.Column computer="11">
+            <Grid.Column computer="10">
               <Item.Content>
                 <Item.Header as="h2">Project Title</Item.Header>
                 <Item.Description>
@@ -79,7 +81,7 @@ class PortGrid extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="11">
+            <Grid.Column computer="10">
               <Item.Content>
                 <Item.Header as="h2">Cookie Collector</Item.Header>
                 <Item.Description>
@@ -99,15 +101,15 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="3" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
               <CoookieCollector />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="3" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
               <NewYorkTimesSearch />
             </Grid.Column>
-            <Grid.Column computer="11">
+            <Grid.Column computer="10">
               <Item.Content>
                 <Item.Header as="h2">New York Times Search</Item.Header>
                 <Item.Description>Add Description</Item.Description>
@@ -128,7 +130,7 @@ class PortGrid extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="11">
+            <Grid.Column computer="10">
               <Item.Content>
                 <Item.Header as="h2">Giphy Requester</Item.Header>
                 <Item.Description>Add Description</Item.Description>
@@ -141,15 +143,15 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="3" onClick={this.openLightbox}>
-              <NewYorkTimesSearch />
+            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+              <GiphyRequester />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="3" onClick={this.openLightbox}>
-              <NewYorkTimesSearch />
+            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+              <TimeCard />
             </Grid.Column>
-            <Grid.Column computer="11">
+            <Grid.Column computer="10">
               <Item.Content>
                 <Item.Header as="h2">Time Card</Item.Header>
                 <Item.Description>Add Description/Broken app...</Item.Description>
@@ -164,7 +166,7 @@ class PortGrid extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="11">
+            <Grid.Column computer="10">
               <Item.Content>
                 <Item.Header as="h2">Admin Apex Cell Phone Repair</Item.Header>
                 <Item.Description>
@@ -189,7 +191,7 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="3" onClick={this.openLightbox}>
+            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
               <AdminACPR />
             </Grid.Column>
           </Grid.Row>
