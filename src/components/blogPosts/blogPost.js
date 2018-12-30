@@ -1,14 +1,20 @@
 import React from "react";
-import Layout from "../Layout";
 import Img from "gatsby-image";
-import SEO from "../Seo";
 import { graphql } from "gatsby";
+import { Grid, Header } from "semantic-ui-react";
+import Layout from "../Layout";
+import SEO from "../Seo";
 
-function BlogPost(props) {
-  const post = props.data.markdownRemark;
-  const url = props.data.site.siteMetadata.siteUrl;
-  const { title, description } = post.frontmatter;
-  const thumbnail = post.frontmatter.image.childImageSharp.resize.src;
+const BlogPost = ({
+  data: {
+    markdownRemark: { frontmatter, html },
+    site
+  },
+  location
+}) => {
+  const url = site.siteMetadata.siteUrl;
+  const { title, description } = frontmatter;
+  const thumbnail = frontmatter.image.childImageSharp.resize.src;
   return (
     <Layout>
       <SEO
@@ -16,7 +22,7 @@ function BlogPost(props) {
         description={description}
         thumbnail={url + thumbnail}
         url={url}
-        pathname={props.location.pathname}
+        pathname={location.pathname}
       />
       <div
         style={{
@@ -26,13 +32,23 @@ function BlogPost(props) {
           overflow: "hidden",
           marginBottom: "100px"
         }}>
-        <h1>{title}</h1>
-        <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Header dividing textAlign="center" style={{ margin: 0, paddingTop: 25 }}>
+          {title}
+        </Header>
+        <Grid style={{ margin: 0 }} centered>
+          <Grid.Row>
+            <Grid.Column computer="14" style={{ marginBottom: 30 }}>
+              <Img fluid={frontmatter.image.childImageSharp.fluid} />
+            </Grid.Column>
+            <Grid.Column computer="14">
+              <div dangerouslySetInnerHTML={{ __html: html }} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     </Layout>
   );
-}
+};
 
 export default BlogPost;
 

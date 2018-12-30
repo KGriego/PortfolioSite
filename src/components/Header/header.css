@@ -1,0 +1,42 @@
+.desktopMenu {
+  border-radius: 0% !important;
+  width: 14% !important;
+  height: 100%;
+  position: fixed;
+}
+.menuHeader {
+  position: relative;
+}
+.menuHeader i {
+  position: absolute;
+  right: 5%;
+}
+.hiddenMobileMenu {
+  border-radius: 0% !important;
+}
+.hiddenMobileMenu a:nth-last-child(-n + 4) {
+  display: none;
+}
+.hamburgerShow {
+  display: block;
+}
+.hamburgerHide {
+  display: none !important;
+}
+
+/* 
+should be reversed, phones first, destop last, js
+start of desktop styles
+*/
+
+@media screen and (max-width: 991px) {
+  /* start of large tablet styles */
+}
+
+@media screen and (max-width: 767px) {
+  /* start of medium tablet styles */
+}
+
+@media screen and (max-width: 479px) {
+  /* start of phone styles */
+}
