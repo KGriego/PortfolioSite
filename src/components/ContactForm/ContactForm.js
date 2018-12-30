@@ -19,7 +19,8 @@ class ContactForm extends Component {
   };
   sendEmail = e => {
     e.preventDefault();
-    const { name, email, message, phoneNumber } = this.state;
+    //don't forget to add phonenumber back in here
+    const { name, email, message } = this.state;
     if (name === "") {
       this.setState({
         errorForName: true,

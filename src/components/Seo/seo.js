@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, thumbnail, title, pathname, url }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -26,6 +26,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: title
               },
               {
+                property: "og:url",
+                content: pathname ? url + pathname : url
+              },
+              {
                 property: `og:description`,
                 content: metaDescription
               },
@@ -34,8 +38,25 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: `website`
               },
               {
+                property: "og:image",
+                content: thumbnail && thumbnail
+              },
+              {
+                property: "og:image:secure_url",
+                content: thumbnail && thumbnail
+              },
+              {
+                property: "og:image:width",
+                content: "1200"
+              },
+
+              {
+                property: "og:image:height",
+                content: "630"
+              },
+              {
                 name: `twitter:card`,
-                content: `summary`
+                content: `summary_large_image`
               },
               {
                 name: `twitter:creator`,
@@ -48,7 +69,9 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 name: `twitter:description`,
                 content: metaDescription
-              }
+              },
+              { name: "robots", content: "index, follow" },
+              { property: "og:site_name", content: "Kevin's/@Midlu Portfolio" }
             ]
               .concat(
                 keywords.length > 0

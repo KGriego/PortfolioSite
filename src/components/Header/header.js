@@ -30,7 +30,7 @@ class Header extends Component {
             onClick={this.handleMenuState}
           />
         </Link>
-        <Link to="/">
+        <Link to="/blog">
           <Menu.Item
             as="div"
             name="blog"

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import { Grid, Item, Divider, Icon } from "semantic-ui-react";
 import Layout from "../components/Layout";
 import Image from "../components/Images/image.js";
@@ -40,7 +39,7 @@ class about extends Component {
                   </Item.Description>
                   <Item.Extra>
                     kev.gri98@gmail.com |{" "}
-                    <a href="#" target="_blank">
+                    <a href="/#" target="_blank">
                       My Resume
                     </a>
                   </Item.Extra>
