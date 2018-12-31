@@ -7,7 +7,7 @@ import "./header.css";
 class Header extends Component {
   state = {
     hidden: false,
-    WindowSize: window.innerWidth
+    WindowSize: 0
   };
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);

@@ -12,7 +12,7 @@ import GiphyRequester from "../Images/GiphyRequester.js";
 let Images = [];
 class PortGrid extends Component {
   state = {
-    WindowSize: window.innerWidth
+    WindowSize: 0
   };
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);

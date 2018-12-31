@@ -4,7 +4,7 @@ import { Button, Form, Message, TextArea, Grid, Header } from "semantic-ui-react
 
 class ContactForm extends Component {
   state = {
-    WindowSize: window.innerWidth,
+    WindowSize: 0,
     name: "",
     errorForName: false,
     email: "",
@@ -21,6 +21,9 @@ class ContactForm extends Component {
   componentWillUnmount() {
     window.addEventListener("resize", null);
   }
+  handleResize = () => {
+    this.setState({ WindowSize: window.innerWidth });
+  };
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   };

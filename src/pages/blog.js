@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 
 class BlogPage extends Component {
   state = {
-    WindowSize: window.innerWidth
+    WindowSize: 0
   };
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
