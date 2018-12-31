@@ -11,8 +11,18 @@ import GiphyRequester from "../Images/GiphyRequester.js";
 
 let Images = [];
 class PortGrid extends Component {
-  state = {};
-
+  state = {
+    WindowSize: window.innerWidth
+  };
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+  componentWillUnmount() {
+    window.addEventListener("resize", null);
+  }
+  handleResize = () => {
+    this.setState({ WindowSize: window.innerWidth });
+  };
   openLightbox = e => {
     //could grab which section it is to go to that
     //picture instead of clearing the array everytime
@@ -42,24 +52,24 @@ class PortGrid extends Component {
     });
   };
   render() {
+    const { WindowSize } = this.state;
+    let menuClass;
+    if (WindowSize <= 780) {
+      menuClass = false;
+    } else {
+      menuClass = true;
+    }
     return (
-      <div
-        style={{
-          width: "86%",
-          float: "right",
-          height: "100%",
-          overflow: "hidden",
-          marginBottom: "100px"
-        }}>
+      <div className={menuClass ? "sizing" : ""}>
         <Header dividing textAlign="center" style={{ margin: 0, paddingTop: 25 }}>
           My Portfolio/Projects
         </Header>
         <Grid centered style={{ marginTop: 20, margin: 0 }} divided="vertically">
           <Grid.Row>
-            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <TriviaGame />
             </Grid.Column>
-            <Grid.Column computer="10">
+            <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Project Title</Item.Header>
                 <Item.Description>
@@ -81,7 +91,7 @@ class PortGrid extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="10">
+            <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Cookie Collector</Item.Header>
                 <Item.Description>
@@ -101,15 +111,15 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <CoookieCollector />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <NewYorkTimesSearch />
             </Grid.Column>
-            <Grid.Column computer="10">
+            <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">New York Times Search</Item.Header>
                 <Item.Description>Add Description</Item.Description>
@@ -130,7 +140,7 @@ class PortGrid extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="10">
+            <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Giphy Requester</Item.Header>
                 <Item.Description>Add Description</Item.Description>
@@ -143,15 +153,15 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <GiphyRequester />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <TimeCard />
             </Grid.Column>
-            <Grid.Column computer="10">
+            <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Time Card</Item.Header>
                 <Item.Description>Add Description/Broken app...</Item.Description>
@@ -166,7 +176,7 @@ class PortGrid extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column computer="10">
+            <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Admin Apex Cell Phone Repair</Item.Header>
                 <Item.Description>
@@ -191,10 +201,11 @@ class PortGrid extends Component {
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
-            <Grid.Column computer="4" onClick={e => this.openLightbox(e)}>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <AdminACPR />
             </Grid.Column>
           </Grid.Row>
+          <Grid.Row />
         </Grid>
         <Lightbox
           backdropClosesModal={true}

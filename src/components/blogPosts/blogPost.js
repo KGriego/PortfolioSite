@@ -1,54 +1,69 @@
-import React from "react";
+import React, { Component } from "react";
 import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import { Grid, Header } from "semantic-ui-react";
 import Layout from "../Layout";
 import SEO from "../Seo";
 
-const BlogPost = ({
-  data: {
-    markdownRemark: { frontmatter, html },
-    site
-  },
-  location
-}) => {
-  const url = site.siteMetadata.siteUrl;
-  const { title, description } = frontmatter;
-  const thumbnail = frontmatter.image.childImageSharp.resize.src;
-  return (
-    <Layout>
-      <SEO
-        title={title}
-        description={description}
-        thumbnail={url + thumbnail}
-        url={url}
-        pathname={location.pathname}
-      />
-      <div
-        style={{
-          width: "86%",
-          float: "right",
-          height: "100%",
-          overflow: "hidden",
-          marginBottom: "100px"
-        }}>
-        <Header dividing textAlign="center" style={{ margin: 0, paddingTop: 25 }}>
-          {title}
-        </Header>
-        <Grid style={{ margin: 0 }} centered>
-          <Grid.Row>
-            <Grid.Column computer="14" style={{ marginBottom: 30 }}>
-              <Img fluid={frontmatter.image.childImageSharp.fluid} />
-            </Grid.Column>
-            <Grid.Column computer="14">
-              <div dangerouslySetInnerHTML={{ __html: html }} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </div>
-    </Layout>
-  );
-};
+class BlogPost extends Component {
+  state = {
+    WindowSize: window.innerWidth
+  };
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+  componentWillUnmount() {
+    window.addEventListener("resize", null);
+  }
+  handleResize = () => {
+    this.setState({ WindowSize: window.innerWidth });
+  };
+  render() {
+    const { WindowSize } = this.state;
+    let menuClass;
+    if (WindowSize <= 780) {
+      menuClass = false;
+    } else {
+      menuClass = true;
+    }
+    const {
+      data: {
+        markdownRemark: { frontmatter, html },
+        site
+      },
+      location
+    } = this.props;
+    const url = site.siteMetadata.siteUrl;
+    const { title, description } = frontmatter;
+    const thumbnail = frontmatter.image.childImageSharp.resize.src;
+    return (
+      <Layout>
+        <SEO
+          title={title}
+          description={description}
+          thumbnail={url + thumbnail}
+          url={url}
+          pathname={location.pathname}
+        />
+        <div className={menuClass ? "sizing" : ""}>
+          <Header dividing textAlign="center" style={{ margin: 0, paddingTop: 25 }}>
+            {title}
+          </Header>
+          <Grid style={{ margin: 0 }} centered>
+            <Grid.Row>
+              <Grid.Column computer="14" style={{ marginBottom: 30 }}>
+                <Img fluid={frontmatter.image.childImageSharp.fluid} />
+              </Grid.Column>
+              <Grid.Column computer="14">
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </div>
+      </Layout>
+    );
+  }
+}
 
 export default BlogPost;
 
