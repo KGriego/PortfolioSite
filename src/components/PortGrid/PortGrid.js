@@ -63,7 +63,7 @@ class PortGrid extends Component {
     return (
       <div className={menuClass ? "sizing" : ""}>
         <Header dividing textAlign="center" style={{ margin: 0, paddingTop: 25 }}>
-          My Portfolio/Projects
+          My Portfolio/Projects | @Midlu
         </Header>
         <Grid centered style={{ marginTop: 20, margin: 0 }} divided="vertically">
           <Grid.Row>
@@ -72,21 +72,23 @@ class PortGrid extends Component {
             </Grid.Column>
             <Grid.Column computer="10" tablet="14">
               <Item.Content>
-                <Item.Header as="h2">Project Title</Item.Header>
+                <Item.Header as="h2">Psychic Game</Item.Header>
                 <Item.Description>
-                  Ex reprehenderit nulla sunt adipisicing ea ea. In fugiat nostrud elit
-                  reprehenderit Lorem laboris laboris dolor. Nisi consequat proident officia
-                  voluptate in ut consequat adipisicing ad labore. Voluptate est sunt cupidatat
-                  cupidatat eiusmod ad. Consectetur ipsum exercitation ipsum id incididunt tempor
-                  quis mollit. Quis excepteur ea labore incididunt culpa. Quis officia eiusmod ad ad
-                  sint cupidatat pariatur aliquip incididunt culpa laboris ullamco tempor laboris.
+                  The Psychic Game picks a letter from the alphabet, at random, for the user to
+                  guess. The user inputs guesses one letter at a time via key press. The game is
+                  similar to Hangman. The game accepts user input in the form of key press of any
+                  alphabet character (a-z). Special characters and numbers are acceptable, but not
+                  included. So be careful. It will display how many guesses are remaining and which
+                  letters have already been guessed. One of the very first mini projects I ever did
+                  while attending UofA Coding Bootcamp.
                 </Item.Description>
-                <Item.Extra as="a" href="#">
-                  Demo: Link
+                <br />
+                <Item.Extra as="a" href="https://midlu.github.io/The-Psychic-Game/" target="_blank">
+                  Demo
                 </Item.Extra>
                 <br />
-                <Item.Extra as="a" href="#" target="_blank">
-                  Repo: alj
+                <Item.Extra as="a" href="https://github.com/Midlu/The-Psychic-Game" target="_blank">
+                  Repo
                 </Item.Extra>
               </Item.Content>
             </Grid.Column>
@@ -103,6 +105,7 @@ class PortGrid extends Component {
                   each cookie is hidden form you until you click on it. Each time the game starts,
                   the game will change the values of each cookie.
                 </Item.Description>
+                <br />
                 <Item.Extra as="a" href="https://midlu.github.io/Unit-4-Game/" target="_blank">
                   Demo
                 </Item.Extra>
@@ -123,7 +126,12 @@ class PortGrid extends Component {
             <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">New York Times Search</Item.Header>
-                <Item.Description>Add Description</Item.Description>
+                <Item.Description>
+                  Here we can search for New York Times articles about a specific topic in a time
+                  range specified by the user. Some future improvements would be to notify the guest
+                  about updates over a specific topic that they would like.
+                </Item.Description>
+                <br />
                 <Item.Extra
                   as="a"
                   href="https://midlu.github.io/NewYorkTimes_Search/"
@@ -144,7 +152,13 @@ class PortGrid extends Component {
             <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Giphy Requester</Item.Header>
-                <Item.Description>Add Description</Item.Description>
+                <Item.Description>
+                  In this app we use the Giphy API to make requests. There are 5 predetermined
+                  choices that you can choose from. You can add as many as you like that you can
+                  then click on to search for that topic of gifs. In this project I learned that
+                  dynamically adding elements to the page don't work as intended.
+                </Item.Description>
+                <br />
                 <Item.Extra as="a" href="https://midlu.github.io/GiphyRequester/" target="_blank">
                   Demo
                 </Item.Extra>
@@ -165,7 +179,14 @@ class PortGrid extends Component {
             <Grid.Column computer="10" tablet="14">
               <Item.Content>
                 <Item.Header as="h2">Time Card</Item.Header>
-                <Item.Description>Add Description/Broken app...</Item.Description>
+                <Item.Description>
+                  Here, we learned how to use the basic functionality of FireBase. We can add
+                  Employees and keep track of their pay rate, the start date, their name, and their
+                  role. Currently FireBase is not connected. Future improvements would be to add
+                  when the next pay check for each employee is. To check off if they've been paid.
+                  To update their roles.
+                </Item.Description>
+                <br />
                 <Item.Extra as="a" href="https://midlu.github.io/TimeCard" target="_blank">
                   Demo
                 </Item.Extra>
@@ -182,7 +203,13 @@ class PortGrid extends Component {
                 <Item.Header as="h2">Admin Apex Cell Phone Repair</Item.Header>
                 <Item.Description>
                   An Adminastration Page to manage the phones you have to repair and/or repaired.
+                  Here we can check in guests who need their devices repaired. We can see the date
+                  they were added, the owner name of the device, their number, the name of the
+                  device, the issue, and the status of the repair. We can update the status of the
+                  device. Future improvements would be to notify the guest everytime the status of
+                  their device is updated. This was made in React.
                 </Item.Description>
+                <br />
                 <Item.Extra
                   as="a"
                   href="https://laughing-spence-6eaa46.netlify.com/"
@@ -204,6 +231,134 @@ class PortGrid extends Component {
             </Grid.Column>
             <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
               <AdminACPR />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
+              <AdminACPR />
+            </Grid.Column>
+            <Grid.Column computer="10" tablet="14">
+              <Item.Content>
+                <Item.Header as="h2">Chirpy</Item.Header>
+                <Item.Description>
+                  Working as a team at a internship held by IntraEdge, we made a twitter like
+                  website called Chirpy. It was interesting working on as the frontend team. We
+                  accomplished quite a bit, users can log in, make chirps, like, hate, and favorite
+                  them. We ran into setbacks like changing frameworks, refactoring some of the
+                  codebase, deciding how we wanted to structure the data. We also were testing as we
+                  went along. It is interesting to see how things are deeply connected when you try
+                  to isolate and test them.
+                </Item.Description>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="http://kllll.s3-website-us-west-1.amazonaws.com"
+                  target="_blank">
+                  Demo
+                </Item.Extra>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="https://github.com/bytesizedxyz/nov-project-chirp-frontend"
+                  target="_blank">
+                  Frontend Repo
+                </Item.Extra>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="https://github.com/bytesizedxyz/nov-project-chirp-backend"
+                  target="_blank">
+                  Backend Repo
+                </Item.Extra>
+              </Item.Content>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column computer="10" tablet="14">
+              <Item.Content>
+                <Item.Header as="h2">Learntube</Item.Header>
+                <Item.Description>
+                  Working as a team at a internship held by IntraEdge, we made a youtube like
+                  website called Learntube. Now having experienced working on a team, we switched
+                  roles, with the frontend as the backend and the backend as the frontend. It wasn't
+                  as difficult testing the backend once we started seperating everything out into
+                  their own functions. It was very straightforward work. The only difficulties we
+                  had we with the frontend needing help to finish because of difficulty
+                  understanding the technologies being implemented. Towards the end managed to get a
+                  MVP by the deadline of the project.
+                </Item.Description>
+                <br />
+                <Item.Extra as="a" href="https://angry-euclid-4e89b9.netlify.com/" target="_blank">
+                  Demo
+                </Item.Extra>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="https://github.com/bytesizedxyz/dec-project-learntube"
+                  target="_blank">
+                  Repo
+                </Item.Extra>
+              </Item.Content>
+            </Grid.Column>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
+              <AdminACPR />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
+              <AdminACPR />
+            </Grid.Column>
+            <Grid.Column computer="10">
+              <Item.Content>
+                <Item.Header as="h2">User Roulette</Item.Header>
+                <Item.Description>
+                  In this project with the team. We made a mini-project within the span of two days
+                  to get some MVP out that the entire group would end up working on. There was no
+                  designated Frontend/Backend team. This was to make up for time lost learning on
+                  the frontend part during the Learntube project. We have a feautured user on the
+                  home page that changes every hour. There is a random user that you can look at by
+                  clicking on the random user button.
+                </Item.Description>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="https://inspiring-pare-aca877.netlify.com/"
+                  target="_blank">
+                  Demo
+                </Item.Extra>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="https://github.com/bytesizedxyz/userroulette-frontend"
+                  target="_blank">
+                  Frontend Repo
+                </Item.Extra>
+                <br />
+                <Item.Extra
+                  as="a"
+                  href="https://github.com/bytesizedxyz/userroulette-backend"
+                  target="_blank">
+                  Backend Repo
+                </Item.Extra>
+              </Item.Content>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column computer="14">
+              <Item.Content>
+                <Item.Header as="h2">My Portfolio</Item.Header>
+                <Item.Description>
+                  Here I've made my portfolio site in React with Gatsby and also GraphQL. I've just
+                  started using Gatsby and GraphQL. I would like to expanded upon this site and see
+                  how far it can go.
+                </Item.Description>
+                <br />
+                <Item.Extra>You're at the Demo!</Item.Extra>
+                <br />
+                <Item.Extra as="a" href="https://github.com/Midlu/PortfolioSite" target="_blank">
+                  Repo
+                </Item.Extra>
+              </Item.Content>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row />
