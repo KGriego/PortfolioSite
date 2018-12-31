@@ -8,6 +8,7 @@ class BlogPage extends Component {
     WindowSize: 0
   };
   componentDidMount() {
+    this.handleResize();
     window.addEventListener("resize", this.handleResize);
   }
   componentWillUnmount() {

@@ -10,6 +10,7 @@ class Header extends Component {
     WindowSize: 0
   };
   componentDidMount() {
+    this.handleResize();
     window.addEventListener("resize", this.handleResize);
   }
   componentWillUnmount() {
@@ -21,31 +22,33 @@ class Header extends Component {
     this.setState({ hidden: !this.state.hidden });
   };
   handleResize = () => {
+    console.log(window.innerWidth);
     this.setState({ WindowSize: window.innerWidth });
   };
   render() {
     const { activeItem, hidden, WindowSize } = this.state;
     const { siteTitle } = this.props;
-    let menuClass;
+    let mobile;
     if (WindowSize <= 780) {
-      menuClass = false;
+      mobile = false;
     } else {
-      menuClass = true;
+      mobile = true;
     }
+    console.log(mobile);
     return (
       <Menu
         inverted
-        vertical={menuClass}
+        vertical={mobile}
         stackable
         pointing
-        className={menuClass ? "desktopMenu" : hidden ? "openMobileMenu" : "hiddenMobileMenu"}
+        className={mobile ? "desktopMenu" : hidden ? "openMobileMenu" : "hiddenMobileMenu"}
         size="huge">
         <Link to="/" style={{ width: "100%" }}>
           <Menu.Item as="div" className="menuHeader" header>
             {siteTitle}{" "}
             <Icon
               name="bars"
-              className={menuClass ? "hamburgerHide" : "hamburgerShow"}
+              className={mobile ? "hamburgerHide" : "hamburgerShow"}
               onClick={this.openMenu}
               fitted
             />

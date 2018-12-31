@@ -16,6 +16,7 @@ class ContactForm extends Component {
     error: false
   };
   componentDidMount() {
+    this.handleResize();
     window.addEventListener("resize", this.handleResize);
   }
   componentWillUnmount() {
