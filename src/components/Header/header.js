@@ -7,7 +7,7 @@ import "./header.css";
 class Header extends Component {
   state = {
     hidden: false,
-    WindowSize: 0
+    WindowSize: 900
   };
   componentDidMount() {
     this.handleResize();
@@ -22,7 +22,6 @@ class Header extends Component {
     this.setState({ hidden: !this.state.hidden });
   };
   handleResize = () => {
-    console.log(window.innerWidth);
     this.setState({ WindowSize: window.innerWidth });
   };
   render() {
@@ -34,7 +33,6 @@ class Header extends Component {
     } else {
       mobile = true;
     }
-    console.log(mobile);
     return (
       <Menu
         inverted
