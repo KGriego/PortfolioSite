@@ -8,6 +8,9 @@ import NewYorkTimesSearch from "../Images/newYorkTimesSearch";
 import AdminACPR from "../Images/adminAcpr";
 import TimeCard from "../Images/TimeCard";
 import GiphyRequester from "../Images/GiphyRequester.js";
+import Chirpy from "../Images/Chirpy";
+import Learntube from "../Images/LearnTube";
+import UserRoulette from "../Images/UserRoulette";
 
 let Images = [];
 class PortGrid extends Component {
@@ -235,7 +238,7 @@ class PortGrid extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
-              <AdminACPR />
+              <Chirpy />
             </Grid.Column>
             <Grid.Column computer="10" tablet="14">
               <Item.Content>
@@ -301,12 +304,12 @@ class PortGrid extends Component {
               </Item.Content>
             </Grid.Column>
             <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
-              <AdminACPR />
+              <Learntube />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column computer="4" tablet="14" onClick={e => this.openLightbox(e)}>
-              <AdminACPR />
+              <UserRoulette />
             </Grid.Column>
             <Grid.Column computer="10">
               <Item.Content>
@@ -350,7 +353,8 @@ class PortGrid extends Component {
                 <Item.Description>
                   Here I've made my portfolio site in React with Gatsby and also GraphQL. I've just
                   started using Gatsby and GraphQL. I would like to expanded upon this site and see
-                  how far it can go.
+                  how far it can go. Currently, Image are small when clicked on. I will find a way
+                  to fix this.
                 </Item.Description>
                 <br />
                 <Item.Extra>You're at the Demo!</Item.Extra>
