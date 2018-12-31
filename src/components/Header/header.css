@@ -11,6 +11,9 @@
   position: absolute;
   right: 5%;
 }
+.openMobileMenu {
+  border-radius: 0% !important;
+}
 .hiddenMobileMenu {
   border-radius: 0% !important;
 }
