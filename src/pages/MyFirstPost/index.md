@@ -14,7 +14,7 @@ constantly update.
 #Technologies used
 
 - Gatsby - For better SEO and static rendering.
-- React
+- React - Personal Choice.
 - Redux - For state management.
 
 #Learning
